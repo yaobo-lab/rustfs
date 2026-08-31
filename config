@@ -1,0 +1,36 @@
+# https://rustfs.com.cn/download/server/
+# https://docs.rustfs.com/zh/reference/environment-variables
+
+
+# RustFS 环境变量配置文件
+# 请将此文件安装到 /etc/default/rustfs，并将文件权限设置为 0600
+
+# 访问凭据
+# 首次启动 RustFS 前必须替换下面两个值，请勿使用 rustfsadmin
+# 由于配置文件包含敏感信息，请勿将填写密钥后的文件提交到版本库。
+RUSTFS_ACCESS_KEY=PDLmw8Qw0D22uLC5bQlZ
+RUSTFS_SECRET_KEY=0ahlZPErg8TR6Cwn3bYxcB4Sjir7fQpDBRo00lG0kmBo0nIf
+
+# 数据存储目录；请确保目录已创建，并且 RustFS 服务用户具有读写权限
+RUSTFS_VOLUMES="/mnt/d/rustfs"
+
+# S3 API 服务监听地址，格式为 "IP:端口"；省略 IP 表示监听所有网络接口
+RUSTFS_ADDRESS=":9000"
+
+# Web 管理控制台监听地址，必须使用与 S3 API 不同的端口
+RUSTFS_CONSOLE_ADDRESS=":9001"
+
+# 是否启用 Web 管理控制台。
+RUSTFS_CONSOLE_ENABLE=true
+
+# 日志级别，可根据需要调整，例如 error、warn、info、debug
+RUSTFS_OBS_LOGGER_LEVEL=error
+
+# 日志存储目录；请确保目录已创建，并且 RustFS 服务用户具有写入权限
+RUSTFS_OBS_LOG_DIRECTORY="/var/log/rustfs/"
+
+
+# 用于虚拟主机风格 S3 请求的域名，以逗号分隔
+# 例如设置 s3.example.com 后，bucket.s3.example.com 会解析到存储桶 bucket
+# 未设置时，仅支持路径风格寻址
+# RUSTFS_SERVER_DOMAINS
